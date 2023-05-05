@@ -1,12 +1,12 @@
 {
   "commands": {
-    "spin": {
+    "play": {
       "settings": {
         "loadApp": true,
         "stayAlive": false
       },
       "commandPath": "./commands/Slot",
-      "commandName": "spin",
+      "commandName": "play",
       "description": "",
       "args": [
         {
@@ -19,15 +19,9 @@
       "aliases": [],
       "flags": [
         {
-          "name": "paylines",
-          "propertyName": "paylines",
-          "type": "array",
-          "alias": "p"
-        },
-        {
           "name": "win",
           "propertyName": "win",
-          "type": "boolean",
+          "type": "number",
           "alias": "w"
         }
       ]

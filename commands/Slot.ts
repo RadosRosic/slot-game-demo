@@ -1,7 +1,7 @@
 import { BaseCommand, args, flags } from '@adonisjs/core/build/standalone'
 
 export default class Slot extends BaseCommand {
-  public static commandName = 'spin'
+  public static commandName = 'play'
 
   public static description = ''
 
@@ -12,20 +12,20 @@ export default class Slot extends BaseCommand {
   }
 
   @args.spread({ required: false })
-  public symbols: any[]
+  public symbols: SlotSymbol[]
 
-  @flags.number({ alias: 'w' })
-  public win: number
+  @flags.number({ alias: 's' })
+  public screen: number
 
   public async run() {
     this.logger.info('Spinning...')
-    const SlotBrain = (await import('../providers/BrainProvider/slot')).default
+    const SlotMachine = (await import('../providers/SlotMachine/slot')).default
     const MockResult = (await import('../providers/MockResultProvider/mock-results')).default
 
-    if (this.win != undefined) {
-      return SlotBrain.play(MockResult.screens.at(this.win))
+    if (this.screen != undefined) {
+      return SlotMachine.play(MockResult.screens.at(this.screen))
     }
 
-    return SlotBrain.play(this.symbols)
+    return SlotMachine.play(this.symbols)
   }
 }
