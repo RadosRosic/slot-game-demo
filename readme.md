@@ -10,6 +10,10 @@ Clone the repository.
 
 Install the needed dependencies.
 
+## ENV
+
+Copy **.env.example** file and rename the copy to **.env**
+
 > npm install
 
 # Commands
